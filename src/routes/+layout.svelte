@@ -12,7 +12,7 @@ import Fa from 'svelte-fa/src/fa.svelte';
 		{ path: '/work', name: 'Work' },
 		{ path: '/blog', name: 'Blog' }
 	];
-
+$:console.log('hello')
 	$: isLinkActive = (path: string) =>
 		$page.url.pathname === path && 'sm:!bg-gray-300 border-l-4 border-l-gray-200 sm:border-0';
 </script>
