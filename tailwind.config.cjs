@@ -5,7 +5,8 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				Bodoni_Moda: ['Bodoni Moda', ...defaultTheme.fontFamily.serif]
+				Bodoni_Moda: ['Bodoni Moda', ...defaultTheme.fontFamily.serif],
+				sofia_pro: ['sofia-pro', ...defaultTheme.fontFamily.serif]
 			}
 		}
 	}
