@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { dev } from '$app/environment';
+	import { inject } from '@vercel/analytics';
+	inject({ mode: dev ? 'development' : 'production' });
 	import { page } from '$app/stores';
 	import Motion from 'svelte-motion/src/motion/MotionSSR.svelte';
 	import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
