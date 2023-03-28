@@ -10,7 +10,7 @@
 	const routes = [
 		{ path: '/', name: 'Home' },
 		{ path: '/about', name: 'About' },
-		{ path: '/work', name: 'Work' },
+		{ path: '/#work', name: 'Work' },
 		{ path: '/blog', name: 'Blog' }
 	];
 	$: console.log('hello');
