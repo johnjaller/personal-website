@@ -1,10 +1,15 @@
 <script lang="ts">
 	import { Lottie } from 'lottie-svelte';
+	// import type { AnimationEvent } from 'lottie-svelte/iface';
 
-	import Fa from 'svelte-fa/src/fa.svelte';
-	import { faReact, faVuejs, faNodeJs, faAngular } from '@fortawesome/free-brands-svg-icons';
-	import Motion from 'svelte-motion/src/motion/MotionSSR.svelte';
-	$: spin = true;
+	// import { faReact, faVuejs, faNodeJs, faAngular } from '@fortawesome/free-brands-svg-icons';
+	// import Motion from 'svelte-motion/src/motion/MotionSSR.svelte';
+	// $: spin = true;
+	// function handler(event: AnimationEvent) {
+	// 	const animation = event.detail.; // lottie-web AnimationItem
+	// 	animation.setSpeed(0.2);
+	// 	setTimeout(() => animation.pause(), 1500);
+	// }
 </script>
 
 <div class="flex w-full items-center flex-col-reverse md:flex-row">

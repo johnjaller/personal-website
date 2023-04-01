@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { dev } from '$app/environment';
-	import { inject } from '@vercel/analytics';
-	inject({ mode: dev ? 'development' : 'production' });
+	// import { dev } from '$app/environment';
+	//TODO: enable for vercel analytics
+
+	// import { inject } from '@vercel/analytics';
+	// inject({ mode: dev ? 'development' : 'production' });
 	import { page } from '$app/stores';
 	import Motion from 'svelte-motion/src/motion/MotionSSR.svelte';
 	import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +15,7 @@
 	const routes = [
 		{ path: '/', name: 'Home' },
 		{ path: '/about', name: 'About' },
-		{ path: '/#work', name: 'Work' },
+		{ path: '/work', name: 'Work' },
 		{ path: '/blog', name: 'Blog' }
 	];
 	$: console.log('hello');
@@ -21,8 +23,14 @@
 		$page.url.pathname === path && 'sm:!bg-gray-300 border-l-4 border-l-gray-200 sm:border-0';
 </script>
 
-<nav class="px-3 py-4 flex items-center border-b-2 sm:border-0 justify-between w-full">
-	<div class="font-Bodoni_Moda sm:w-[30%] font-bold text-center text-2xl">Personal Website</div>
+<svelte:head>
+	<link rel="stylesheet" href="https://use.typekit.net/hqa3mex.css" />
+</svelte:head>
+
+<nav
+	class="px-3 py-4 flex items-center border-b-2 sm:border-0 justify-between w-full font-sofia_pro"
+>
+	<div class=" sm:w-[30%] font-bold text-center text-3xl">John Kwong</div>
 	<button class="sm:hidden" on:click={() => (isOpen = !isOpen)}>
 		{#if isOpen}
 			<Fa icon={faXmark} size="2x" />
@@ -79,7 +87,7 @@
 			exit={{ right: '-100%' }}
 		>
 			<div
-				class="absolute bg-white text-dark {!!isOpen
+				class="absolute bg-white text-dark {isOpen
 					? 'right-0'
 					: 'right-[-100%]'} top-0 flex w-[50%] z-10 h-screen items-center border-l-2 flex-col"
 				use:motion
