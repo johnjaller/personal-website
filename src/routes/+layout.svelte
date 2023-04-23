@@ -1,12 +1,11 @@
 <script lang="ts">
 	// import { dev } from '$app/environment';
 	//TODO: enable for vercel analytics
-
 	// import { inject } from '@vercel/analytics';
 	// inject({ mode: dev ? 'development' : 'production' });
 	import { page } from '$app/stores';
 	import Motion from 'svelte-motion/src/motion/MotionSSR.svelte';
-	import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+	import { faBars, faXmark,faEnvelope } from '@fortawesome/free-solid-svg-icons';
 	import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 	import Fa from 'svelte-fa/src/fa.svelte';
 	import { AnimatePresence } from 'svelte-motion/src';
@@ -72,6 +71,13 @@
 					class="socialItem rounded-xl hover:!bg-[#eaeaea] flex items-center z-10"
 					><Fa icon={faLinkedin} class="mr-2" />LinkedIn</a
 				>
+				<a
+					target="_blank"
+					rel="noreferrer"
+					href="mailto:johnjaller@hotmail.com"
+					class="socialItem rounded-xl hover:!bg-[#eaeaea] flex items-center z-10"
+					><Fa icon={faEnvelope} class="mr-2" />Email</a
+				>
 			</div>
 		</div>
 	</div>
@@ -112,9 +118,9 @@
 		</Motion>
 	</AnimatePresence>
 </div>
-<div class="w-screen h-screen">
+<main>
 	<slot />
-</div>
+</main>
 
 <style lang="scss">
 	@keyframes changeBackgroundColor {
@@ -178,12 +184,15 @@
 		.socialItem:nth-child(2) {
 			transition: all 0.45s ease-in;
 
-			// animation: scrollDown 0.45s linear;
 		}
 		.socialItem:nth-child(3) {
 			transition: all 0.5s ease-in;
 
 			// animation: scrollDown 0.5s linear;
+		}
+		.socialItem:nth-child(4) {
+			transition: all 0.55s ease-in;
+
 		}
 	}
 	@keyframes scrollDown {

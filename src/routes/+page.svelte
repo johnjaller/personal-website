@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { Lottie } from 'lottie-svelte';
+	import IntersectionObserver from '../lib/IntersectionObserver.svelte';
+	import Fa from 'svelte-fa/src/fa.svelte';
+	import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 	// import type { AnimationEvent } from 'lottie-svelte/iface';
 
 	// import { faReact, faVuejs, faNodeJs, faAngular } from '@fortawesome/free-brands-svg-icons';
@@ -22,7 +25,85 @@
 		<Lottie path="./factory.json" />
 	</div>
 </div>
+<IntersectionObserver let:intersecting once>
+	{#if intersecting}
+		<section class="flex font-sofia_pro justify-center gap-5 w-full mt-4 max-md:flex-col px-8 mb-10 profile ">
+			<div class="min-w-20 border-r-black border-r-2 md:pr-6 max-md:border-r-0 ">
+				<h1 class="text-7xl mb-10 ">About me</h1>
+				<img
+					src="/profile.jpeg"
+					alt="profile pic"
+					loading="lazy"
+					class="rounded-full max-w-[300px] max-h-[300px] max-md:w-full "
+				/>
+			</div>
+			<div class="max-w-6xl flex flex-col justify-center text-xl max-md:border-b-2 max-md:pb-4 border-[#eaeaea]">
+				<p class="mb-4">
+					My name is Kwong Chin Fung. You can also call me John. I born in Hong Kong and grduated
+					from science bachelor degree in major of Chemistry. I love science since Secondary School.
+					I have studied Physics and Chemistry and Economics. My favorite subject is Chemistry. I
+					also like to learn new sets of technlogies and different skills
+				</p>
+				<!-- <p class="mb-4">
+					However, I find that chemistry related jobs were so limited becuase of COVID-19. Then, I
+					realised that the opportunity of being a scientist or working at laboratory In Hong Kong
+					is resetricted. It is too repetitive and boring. I want to look for something more
+					challenging and exciting. So I change my gear and try to become a full-fledge web
+					developer
+				</p>
+				<p class="">
+					However, I find that chemistry related jobs were so limited becuase of COVID-19. Then, I
+					realised that the opportunity of being a scientist or working at laboratory In Hong Kong
+					is resetricted. It is too repetitive and boring. I want to look for something more
+					challenging and exciting. So I change my gear and try to become a full-fledge web
+					developer
+				</p> -->
+				<a class="self-end flex items-center justify-center mt-3" href="/about">Continue Reading<Fa icon={faArrowRight} class='ml-2' size=''/></a>
+			</div>
+		</section>
+	{/if}
+</IntersectionObserver>
+<IntersectionObserver let:intersecting top={100}>
+	{#if intersecting}
+	<section
+	class="flex items-center justify-center flex-col intro"
+	>
+<h3 class=" text-5xl font-bold self-start ">What Can I do?</h3>
+<img src="/meme.png" alt="" class="intro max-md:w-full my-4">
+<div class='flex md:shrink overflow-x-scroll items-start w-full'>
+<div class='mr-4'>
+	<div class="mb-3">Utilizing popular framework</div>
+<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat alias natus. Incidunt animi et cupiditate quidem ipsum accusantium harum laborum! Quia, vel maiores quasi facilis tempora quis soluta exercitationem.</div>
+</div>
+<div class='mr-4'>
+	<div class="mb-3">Utilizing popular framework</div>
+<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat alias natus. Incidunt animi et cupiditate quidem ipsum accusantium harum laborum! Quia, vel maiores quasi facilis tempora quis soluta exercitationem.</div>
+</div>	
+<div>
+	<div class="mb-3">Utilizing popular framework</div>
+<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque placeat alias natus. Incidunt animi et cupiditate quidem ipsum accusantium harum laborum! Quia, vel maiores quasi facilis tempora quis soluta exercitationem.</div>
+</div>	
+</div>
+</section>
+{/if}
+</IntersectionObserver>
+<IntersectionObserver let:intersecting top={100} class="flex items-center justify-center flex-col px-8 !h-[600px] bg-center bg-cover bg  mt-[40px]"
+style="background-image: url('./contact.jpg');">
+{#if intersecting}
+<!-- <section
 
+> -->
+<IntersectionObserver let:intersecting top={10} class="flex items-center justify-center flex-col">
+	{#if intersecting}
+<h3 class=" text-3xl font-bold mb-10 title" >
+	Get In Touch
+</h3>
+<a href="mailto:johnjaller@hotmail.com" class="rounded-full px-5 py-4 flex items-center bg-slate-300 title">Send me a Email<Fa icon={faArrowRight} class='ml-2' size=''/></a>
+{/if}
+</IntersectionObserver>	
+<!-- </section> -->
+{/if}
+</IntersectionObserver>
 <!-- <div style='height:80vw; padding-top:50px'>
 	<Motion
 		initial={{display:'hidden'}}
@@ -54,9 +135,53 @@
 	</Motion>
 </div> -->
 <style lang="scss">
+	section{
+		margin: 40px 0;
+	}
+	section:last-child{
+		margin-bottom: 0;
+	}
 	@keyframes shine {
 		to {
 			background-position-x: -200%;
+		}
+	}
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+			transform: translateX(50%);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+	@keyframes fadeInOpacity {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	@keyframes fadeInTopBottom {
+		0% {
+			opacity: 0;
+			transform: translateY(-50%);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+	@keyframes fadeInTopBottomHigher {
+		0% {
+			opacity: 0;
+			transform: translateY(-200%);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
 		}
 	}
 	.skeleton {
@@ -65,5 +190,18 @@
 		background-size: 400% 400%;
 		background-position: -100% 100%;
 		animation: shine 1s linear infinite;
+	}
+	.profile {
+		animation: fadeIn 2s ease;
+	}
+	.intro {
+		animation: fadeInTopBottom 1s ease;
+	}
+	.title {
+		animation-delay: 2000ms;
+		animation: fadeInTopBottomHigher 2.5s ease;
+	}
+	.bg {
+		animation: fadeInOpacity 2s ease;
 	}
 </style>
